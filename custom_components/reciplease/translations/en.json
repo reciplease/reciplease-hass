@@ -10,6 +10,13 @@
           "url": "The base URL of your Reciplease deployment, e.g. https://api.example.com",
           "api_key": "A house service-account key, created by a house owner under House settings → API keys"
         }
+      },
+      "reauth_confirm": {
+        "title": "Reauthenticate Reciplease",
+        "description": "The API key for this house was rejected. Create a new one under House settings → API keys and enter it below.",
+        "data": {
+          "api_key": "API key"
+        }
       }
     },
     "error": {
@@ -18,7 +25,8 @@
       "unknown": "Unexpected error"
     },
     "abort": {
-      "already_configured": "This house is already configured"
+      "already_configured": "This house is already configured",
+      "reauth_successful": "Re-authentication was successful"
     }
   },
   "entity": {
