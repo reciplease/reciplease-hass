@@ -1,0 +1,40 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "data": {
+          "url": "Reciplease API URL",
+          "api_key": "API key"
+        },
+        "data_description": {
+          "url": "The base URL of your Reciplease deployment, e.g. https://api.example.com",
+          "api_key": "A house service-account key, created by a house owner under House settings → API keys"
+        }
+      }
+    },
+    "error": {
+      "invalid_auth": "The API key was rejected. It may be revoked or mistyped.",
+      "cannot_connect": "Could not reach the Reciplease API at that URL.",
+      "unknown": "Unexpected error"
+    },
+    "abort": {
+      "already_configured": "This house is already configured"
+    }
+  },
+  "entity": {
+    "sensor": {
+      "inventory_items": {
+        "name": "Inventory items"
+      },
+      "expired_inventory_items": {
+        "name": "Expired inventory items"
+      },
+      "upcoming_planned_meals": {
+        "name": "Upcoming planned meals"
+      },
+      "next_planned_meal": {
+        "name": "Next planned meal"
+      }
+    }
+  }
+}
