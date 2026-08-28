@@ -8,7 +8,7 @@ from typing import Any
 from aiohttp import ClientError, ClientResponseError, ClientSession
 
 from .exceptions import InvalidAuth, ReciplaseConnectionError
-from .models import HouseSelf, InventorySummary, PlannedMeal, PlannedMealsSummary
+from .models import HouseSelf, PantrySummary, PlannedMeal, PlannedMealsSummary
 
 HOUSE_HEADER = "X-RCPLS-House-Id"
 UPCOMING_MEALS_WINDOW = timedelta(days=14)
@@ -38,11 +38,11 @@ class ReciplaseClient:
             role=data["role"],
         )
 
-    async def async_get_inventory_summary(self) -> InventorySummary:
-        """Fetch inventory counts for the house."""
-        items = await self._request("GET", "/api/inventory", params={"excludeFullyConsumed": "true"})
-        expired = await self._request("GET", "/api/inventory/expired")
-        return InventorySummary(total_items=len(items), expired_items=len(expired))
+    async def async_get_pantry_summary(self) -> PantrySummary:
+        """Fetch pantry counts for the house."""
+        items = await self._request("GET", "/api/pantry", params={"excludeFullyConsumed": "true"})
+        expired = await self._request("GET", "/api/pantry/expired")
+        return PantrySummary(total_items=len(items), expired_items=len(expired))
 
     async def async_get_planned_meals_summary(self) -> PlannedMealsSummary:
         """Fetch upcoming planned meals for the house."""

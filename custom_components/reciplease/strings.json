@@ -31,11 +31,11 @@
   },
   "entity": {
     "sensor": {
-      "inventory_items": {
-        "name": "Inventory items"
+      "pantry_items": {
+        "name": "Pantry items"
       },
-      "expired_inventory_items": {
-        "name": "Expired inventory items"
+      "expired_pantry_items": {
+        "name": "Expired pantry items"
       },
       "upcoming_planned_meals": {
         "name": "Upcoming planned meals"

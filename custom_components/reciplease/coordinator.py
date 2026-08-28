@@ -12,7 +12,7 @@ from homeassistant.helpers.update_coordinator import DataUpdateCoordinator, Upda
 
 from reciplease_hass import (
     HouseSelf,
-    InventorySummary,
+    PantrySummary,
     PlannedMealsSummary,
     ReciplaseClient,
     ReciplaseConnectionError,
@@ -27,7 +27,7 @@ UPDATE_INTERVAL = timedelta(minutes=15)
 class ReciplaseData:
     """Data fetched on each coordinator refresh."""
 
-    inventory: InventorySummary
+    pantry: PantrySummary
     planned_meals: PlannedMealsSummary
 
 
@@ -59,8 +59,8 @@ class ReciplaseCoordinator(DataUpdateCoordinator[ReciplaseData]):
 
     async def _async_update_data(self) -> ReciplaseData:
         try:
-            inventory = await self.client.async_get_inventory_summary()
+            pantry = await self.client.async_get_pantry_summary()
             planned_meals = await self.client.async_get_planned_meals_summary()
         except ReciplaseConnectionError as err:
             raise UpdateFailed(str(err)) from err
-        return ReciplaseData(inventory=inventory, planned_meals=planned_meals)
+        return ReciplaseData(pantry=pantry, planned_meals=planned_meals)

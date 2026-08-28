@@ -9,5 +9,5 @@
   "issue_tracker": "https://github.com/reciplease/reciplease-hass/issues",
   "loggers": ["reciplease_hass"],
   "requirements": ["reciplease-hass @ git+https://github.com/reciplease/reciplease-hass.git@main"],
-  "version": "0.1.0"
+  "version": "0.2.0"
 }

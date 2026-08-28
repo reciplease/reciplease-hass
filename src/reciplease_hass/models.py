@@ -16,8 +16,8 @@ class HouseSelf:
 
 
 @dataclass(frozen=True)
-class InventorySummary:
-    """Aggregate counts derived from the house's inventory list."""
+class PantrySummary:
+    """Aggregate counts derived from the house's pantry list."""
 
     total_items: int
     expired_items: int

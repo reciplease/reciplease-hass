@@ -2,12 +2,12 @@
 
 from .client import ReciplaseClient
 from .exceptions import InvalidAuth, ReciplaseConnectionError, ReciplaseError
-from .models import HouseSelf, InventorySummary, PlannedMeal, PlannedMealsSummary
+from .models import HouseSelf, PantrySummary, PlannedMeal, PlannedMealsSummary
 
 __all__ = [
     "HouseSelf",
     "InvalidAuth",
-    "InventorySummary",
+    "PantrySummary",
     "PlannedMeal",
     "PlannedMealsSummary",
     "ReciplaseClient",

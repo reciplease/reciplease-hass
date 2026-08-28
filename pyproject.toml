@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "reciplease-hass"
-version = "0.1.0"
+version = "0.2.0"
 description = "Async client library for the Reciplease API, used by the Home Assistant custom integration"
 readme = "README.md"
 license = "GPL-3.0-or-later"

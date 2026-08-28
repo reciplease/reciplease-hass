@@ -11,7 +11,7 @@ from custom_components.reciplease.const import DOMAIN
 from reciplease_hass import (
     HouseSelf,
     InvalidAuth,
-    InventorySummary,
+    PantrySummary,
     PlannedMealsSummary,
     ReciplaseConnectionError,
 )
@@ -35,8 +35,8 @@ async def test_setup_entry_success(hass: HomeAssistant) -> None:
         client.async_get_self = AsyncMock(
             return_value=HouseSelf(house_id="house-1", house_name="Test House", role="READ_ONLY")
         )
-        client.async_get_inventory_summary = AsyncMock(
-            return_value=InventorySummary(total_items=5, expired_items=1)
+        client.async_get_pantry_summary = AsyncMock(
+            return_value=PantrySummary(total_items=5, expired_items=1)
         )
         client.async_get_planned_meals_summary = AsyncMock(
             return_value=PlannedMealsSummary(upcoming_count=2, next_meal=None)
@@ -46,7 +46,7 @@ async def test_setup_entry_success(hass: HomeAssistant) -> None:
         await hass.async_block_till_done()
 
     assert entry.state is ConfigEntryState.LOADED
-    assert hass.states.get("sensor.test_house_inventory_items").state == "5"
+    assert hass.states.get("sensor.test_house_pantry_items").state == "5"
 
 
 async def test_setup_entry_raises_auth_failed(hass: HomeAssistant) -> None:

@@ -1,7 +1,7 @@
 # Reciplease for Home Assistant
 
 A Home Assistant custom integration that surfaces basic info from your [Reciplease](https://github.com/reciplease/reciplease)
-house: inventory counts and upcoming planned meals.
+house: pantry counts and upcoming planned meals.
 
 This repo has two parts:
 
@@ -41,8 +41,8 @@ This repo has two parts:
 
 This creates one device per house, with sensors for:
 
-- Inventory items
-- Expired inventory items
+- Pantry items
+- Expired pantry items
 - Upcoming planned meals (next 14 days)
 - Next planned meal
 

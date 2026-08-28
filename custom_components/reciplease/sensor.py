@@ -24,18 +24,18 @@ type StateType = str | int | None
 
 SENSOR_DESCRIPTIONS: tuple[ReciplaseSensorEntityDescription, ...] = (
     ReciplaseSensorEntityDescription(
-        key="inventory_items",
-        translation_key="inventory_items",
+        key="pantry_items",
+        translation_key="pantry_items",
         native_unit_of_measurement="items",
         state_class="measurement",
-        value_fn=lambda data: data.inventory.total_items,
+        value_fn=lambda data: data.pantry.total_items,
     ),
     ReciplaseSensorEntityDescription(
-        key="expired_inventory_items",
-        translation_key="expired_inventory_items",
+        key="expired_pantry_items",
+        translation_key="expired_pantry_items",
         native_unit_of_measurement="items",
         state_class="measurement",
-        value_fn=lambda data: data.inventory.expired_items,
+        value_fn=lambda data: data.pantry.expired_items,
     ),
     ReciplaseSensorEntityDescription(
         key="upcoming_planned_meals",

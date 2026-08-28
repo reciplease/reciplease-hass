@@ -83,10 +83,10 @@ async def test_house_scoped_call_before_self_raises() -> None:
     client, _ = make_client()
 
     with pytest.raises(RuntimeError):
-        await client.async_get_inventory_summary()
+        await client.async_get_pantry_summary()
 
 
-async def test_async_get_inventory_summary_counts_items() -> None:
+async def test_async_get_pantry_summary_counts_items() -> None:
     client, session = make_client(
         FakeResponse(200, {"houseId": "house-1", "houseName": "Test House", "role": "READ_ONLY"}),
         FakeResponse(200, [{"uuid": "item-1"}, {"uuid": "item-2"}]),
@@ -94,12 +94,12 @@ async def test_async_get_inventory_summary_counts_items() -> None:
     )
     await client.async_get_self()
 
-    summary = await client.async_get_inventory_summary()
+    summary = await client.async_get_pantry_summary()
 
     assert summary.total_items == 2
     assert summary.expired_items == 1
-    assert session.requests[1] == ("GET", f"{BASE_URL}/api/inventory")
-    assert session.requests[2] == ("GET", f"{BASE_URL}/api/inventory/expired")
+    assert session.requests[1] == ("GET", f"{BASE_URL}/api/pantry")
+    assert session.requests[2] == ("GET", f"{BASE_URL}/api/pantry/expired")
 
 
 async def test_async_get_planned_meals_summary_finds_the_nearest_meal() -> None:
