@@ -46,7 +46,7 @@ async def test_setup_entry_success(hass: HomeAssistant) -> None:
         await hass.async_block_till_done()
 
     assert entry.state is ConfigEntryState.LOADED
-    assert hass.states.get("sensor.test_house_pantry_items").state == "5"
+    assert hass.states.get("sensor.reciplease_test_house_pantry_items").state == "5"
 
 
 async def test_setup_entry_raises_auth_failed(hass: HomeAssistant) -> None:
