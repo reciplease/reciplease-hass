@@ -20,7 +20,7 @@ from reciplease_hass import (
 
 _LOGGER = logging.getLogger(__name__)
 
-UPDATE_INTERVAL = timedelta(minutes=15)
+UPDATE_INTERVAL = timedelta(minutes=30)
 
 
 @dataclass
